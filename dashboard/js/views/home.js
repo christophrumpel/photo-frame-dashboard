@@ -18,7 +18,6 @@
       '<span class="h-wx-icon">' + App.icon(w.cond, 60) + '</span>' +
       '<span class="h-wx-temp num">' + w.temp + '°</span>' +
       '<span class="h-wx-meta"><b>' + w.label + '</b><span>H ' + w.hi + '°  L ' + w.lo + '°</span></span>' +
-      '<button class="h-wx-week" data-week>7 days' + App.icon('right', 20) + '</button>' +
       '</div>' +
       '<div class="h-wx-say"><b>' + w.summary + '.</b> ' + w.advice + '.</div>' +
       '<div class="h-wx-hours">' + hours.map(function (h) {
@@ -26,26 +25,6 @@
         return '<div class="h-hr' + (h.p >= 50 ? ' is-wet' : '') + '"><span class="h-hr-l">' + h.label + '</span>' +
           '<span class="h-hr-i" style="transform:translateY(' + -lift + 'px)">' + App.icon(h.c, 22) + '</span><b>' + h.t + '°</b></div>';
       }).join('') + '</div>';
-  }
-
-  // 7-day forecast sheet. Each day's bar spans its low–high within the week's overall range.
-  function weekSheet() {
-    var days = D.weather.days, labels = { sun: 'Sunny', moon: 'Clear', partly: 'Partly cloudy', cloud: 'Overcast', rain: 'Rain' };
-    var min = Math.min.apply(null, days.map(function (d) { return d.lo; }));
-    var max = Math.max.apply(null, days.map(function (d) { return d.hi; }));
-    App.sheet('<div class="sheet-pad"><div class="label">Forecast</div><h2 class="sheet-h serif">The week ahead</h2>' +
-      '<div class="wk">' + days.map(function (d, i) {
-        var date = App.addDays(App.now(), i);
-        var left = (d.lo - min) / (max - min) * 100, width = (d.hi - d.lo) / (max - min) * 100;
-        return '<div class="wk-row' + (d.p >= 50 ? ' is-wet' : '') + '">' +
-          '<b class="wk-day">' + (i === 0 ? 'Today' : App.fmt.dayShort(date)) + '</b>' +
-          '<span class="wk-i">' + App.icon(d.c, 34) + '</span>' +
-          '<span class="wk-c">' + labels[d.c] + '</span>' +
-          '<span class="wk-p">' + (d.p >= 10 ? App.icon('drop', 18) + d.p + '%' : '') + '</span>' +
-          '<span class="wk-lo num">' + d.lo + '°</span>' +
-          '<span class="wk-bar"><i style="left:' + left + '%;width:' + width + '%"></i></span>' +
-          '<span class="wk-hi num">' + d.hi + '°</span></div>';
-      }).join('') + '</div></div>', { cls: 'sheet--wide' });
   }
 
   function presence() {
@@ -183,7 +162,6 @@
           '  <div class="h-duo"><button class="h-shop card" data-go="shopping"></button><button class="h-status card" data-go="control"></button></div>' +
           '</div></div>';
         el.addEventListener('click', function (e) {
-          if (e.target.closest('[data-week]')) { weekSheet(); return; }
           var ev = e.target.closest('[data-ev]');
           if (ev) { App.eventSheet(App.findEvent(ev.dataset.ev)); return; }
           var g = e.target.closest('[data-go]');

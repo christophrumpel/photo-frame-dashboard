@@ -30,28 +30,6 @@
 .h-hr-i { height: 26px; display: grid; place-items: center; }
 .h-hr b { font-weight: 800; font-stretch: 70%; }
 .h-hr.is-wet .h-hr-i { color: #1F6FEB; }
-.h-wx-week {
-  margin-left: auto; min-height: 56px; padding: 0 12px 0 18px; border-radius: 999px; border: 2px solid var(--ink);
-  display: flex; align-items: center; gap: 4px;
-  font-size: 16px; font-weight: 800; font-stretch: 75%; letter-spacing: .06em; text-transform: uppercase;
-}
-.h-wx-week:active { background: var(--paper-2); transform: scale(.96); }
-
-/* ---- 7-day forecast sheet */
-.wk-row {
-  display: grid; grid-template-columns: 90px 44px 170px 80px 44px 1fr 44px; align-items: center; gap: 14px;
-  min-height: 70px; border-top: 2px solid var(--line); font-size: 20px;
-}
-.wk-row:first-child { border-top: 3px solid var(--ink); }
-.wk-day { font-weight: 800; font-stretch: 80%; text-transform: uppercase; letter-spacing: .06em; }
-.wk-i { display: grid; place-items: center; }
-.wk-c { color: var(--ink-2); }
-.wk-p { display: flex; align-items: center; gap: 4px; font-size: 17px; font-weight: 700; color: var(--mute); }
-.wk-row.is-wet .wk-i, .wk-row.is-wet .wk-p { color: #1F6FEB; }
-.wk-lo, .wk-hi { font-size: 26px; text-align: right; }
-.wk-lo { color: var(--mute); }
-.wk-bar { position: relative; height: 10px; border-radius: 5px; background: var(--paper-2); }
-.wk-bar i { position: absolute; top: 0; bottom: 0; border-radius: 5px; background: linear-gradient(90deg, #5B9BD5, #FF9500); }
 
 /* ---- presence */
 .h-presence { grid-column: 10 / 13; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 3px solid var(--ink); padding: 2px 0 10px; }
