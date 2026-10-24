@@ -262,7 +262,17 @@ window.DATA = (function () {
     hi: 17, lo: 8, feels: -2, humidity: 71, wind: 18,
     t: [9, 9, 8, 8, 8, 8, 9, 10, 11, 12, 13, 15, 16, 17, 16, 15, 14, 13, 12, 12, 11, 10, 10, 9],
     c: ['moon', 'moon', 'moon', 'moon', 'moon', 'moon', 'partly', 'partly', 'sun', 'sun', 'sun', 'partly', 'partly', 'cloud', 'cloud', 'cloud', 'rain', 'rain', 'rain', 'rain', 'cloud', 'cloud', 'moon', 'moon'],
-    p: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 10, 20, 25, 40, 80, 90, 70, 55, 20, 10, 0, 0]
+    p: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 10, 20, 25, 40, 80, 90, 70, 55, 20, 10, 0, 0],
+    // next 7 days, starting today (c = condition, p = chance of rain %)
+    days: [
+      { c: 'rain', hi: 17, lo: 8, p: 90 },
+      { c: 'partly', hi: 15, lo: 7, p: 20 },
+      { c: 'sun', hi: 18, lo: 6, p: 0 },
+      { c: 'sun', hi: 20, lo: 9, p: 5 },
+      { c: 'cloud', hi: 16, lo: 10, p: 35 },
+      { c: 'rain', hi: 12, lo: 7, p: 85 },
+      { c: 'partly', hi: 14, lo: 5, p: 15 }
+    ]
   };
 
   // ---------------------------------------------------------------- photos
